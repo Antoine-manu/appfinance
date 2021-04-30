@@ -35,12 +35,22 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div class="navbar-nav">
-                        <a class="nav-link <?= active()=='backoffice' ? 'active' : '' ?>" href="backoffice.php">Tableau de bord <i class="fas fa-wallet "></i></a>
-                        <a class="nav-link <?= active()=='adduser' ? 'active' : '' ?>" href="adduser.php">Ajouter un utilisateur <i class="fas fa-user-plus"></i></a>
-                        <a class="nav-link <?= active()=='addrevenue' ? 'active' : '' ?>" href="addrevenue.php">Déclarer un revenu <i class="fas fa-piggy-bank"></i></a>
-                        <a class="nav-link <?= active()=='adddepense' ? 'active' : '' ?>" href="adddepense.php">Déclarer une depense <i class="fas fa-donate"></i></a>
-                        <a class="nav-link <?= active()=='userlist' ? 'active' : '' ?>" href="userlist.php">Voir les utilisateurs <i class="fas fa-users"></i></a>
+                        <a class="nav-link <?= active()=='backoffice' ? 'active' : '' ?>" href="backoffice.php">Tableau
+                            de bord <i class="fas fa-wallet "></i></a>
+                        <a class="nav-link <?= active()=='adduser' ? 'active' : '' ?>" href="adduser.php">Ajouter un
+                            utilisateur <i class="fas fa-user-plus"></i></a>
+                        <a class="nav-link <?= active()=='addrevenue' ? 'active' : '' ?>" href="addrevenue.php">Déclarer
+                            un revenu <i class="fas fa-piggy-bank"></i></a>
+                        <a class="nav-link <?= active()=='adddepense' ? 'active' : '' ?>" href="adddepense.php">Déclarer
+                            une depense <i class="fas fa-donate"></i></a>
+                        <a class="nav-link <?= active()=='userlist' ? 'active' : '' ?>" href="userlist.php">Voir les
+                            utilisateurs <i class="fas fa-users"></i></a>
                     </div>
+                    <?php if(isset($id)) :?>
+                    <span class="navbar-text ms-auto">
+                        <?= $detailsmembers['0']['first_name'] ?> <?= $detailsmembers['0']['last_name'] ?><img src="../assets/img/men.jpg" class="rounded-circle ms-3" alt="..." width="40rem" height="40rem">
+                    </span>
+                    <?php endif ; ?>
                 </div>
             </div>
         </nav>
