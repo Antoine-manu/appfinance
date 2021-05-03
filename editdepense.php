@@ -2,7 +2,10 @@
 $id = getid();
 $data = getdata();
 $pdo = connection();
+$detailsmembers = detailsmembers($pdo, $id);
+
 $detailsmembers = detaildepense($pdo, $id, $data);
+$detaildepense = geteditdepense($pdo, $id, $data);
 
 if (!empty($_POST)) {
 
@@ -46,17 +49,17 @@ if (!empty($_POST)) {
                 <form action="" method="post">
                     <div class="mb-3">
                         <label class="mb-3" for="exp_label">Raison de la dépense</label>
-                        <input name="exp_label" class="form-control" id="exp_label" type="text" value="<?= $detailsmembers[$data-1]['exp_label'] ?>">
+                        <input name="exp_label" class="form-control" id="exp_label" type="text" value="<?= $detaildepense[0]['exp_label'] ?>">
                         <p class="mb-0 text-danger"><?= $errors['exp_label'] ?? '' ?></p>
                     </div>
                     <div class="mb-3">
                         <label class="mb-3" for="exp_date">Date de sortie</label>
-                        <input name="exp_date" class="form-control" id="exp_date" type="date" value="<?= formatdate($detailsmembers[$data-1]['exp_date']) ?>">
+                        <input name="exp_date" class="form-control" id="exp_date" type="date" value="<?= formatdate($detaildepense[0]['exp_date']) ?>">
                         <p class="mb-0 text-danger"><?= $errors['exp_date'] ?? '' ?></p>
                     </div>
                     <div class="mb-3">
                         <label class="mb-3" for="exp_amount">Montant de la dépense</label>
-                        <input name="exp_amount" class="form-control" id="exp_amount" type="text" value="<?= $detailsmembers[$data-1]['exp_amount'] ?>">
+                        <input name="exp_amount" class="form-control" id="exp_amount" type="text" value="<?= $detaildepense[0]['exp_amount'] ?>">
                         <p class="mb-0 text-danger"><?= $errors['exp_amount'] ?? '' ?></p>
                     </div>
                     <input class="btn btn-primary" type="submit" value="Enregister">

@@ -1,0 +1,11 @@
+.userlist{
+    width: 80%;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+}
+.userlist .card {
+    width: 25% !important;
+     margin: 0 ;
+    flex-wrap: wrap;
+}

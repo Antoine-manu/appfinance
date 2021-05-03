@@ -23,7 +23,7 @@ if (!empty($_POST)) {
     if (!$error) {
         $exp_label = htmlentities($_POST['exp_label']);
         $exp_date = htmlentities($_POST['exp_date']);
-        $exp_amount = htmlentities($_POST['exp_amount']);
+        $exp_amount = (int) htmlentities($_POST['exp_amount']);
         if (adddepense($pdo, $exp_amount, $exp_date, $exp_label, $id)) {
             $success = true;
         }
