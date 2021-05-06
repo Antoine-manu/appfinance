@@ -4,7 +4,6 @@ $data = getdata();
 $pdo = connection();
 $detailsmembers = detailsmembers($pdo, $id);
 
-$detailsmembers = detaildepense($pdo, $id, $data);
 $detaildepense = geteditdepense($pdo, $id, $data);
 
 if (!empty($_POST)) {
@@ -62,8 +61,8 @@ if (!empty($_POST)) {
                         <input name="exp_amount" class="form-control" id="exp_amount" type="text" value="<?= $detaildepense[0]['exp_amount'] ?>">
                         <p class="mb-0 text-danger"><?= $errors['exp_amount'] ?? '' ?></p>
                     </div>
-                    <input class="btn btn-primary" type="submit" value="Enregister">
-                    <button type="button" class="btn btn-primary"><a href="detailsmember.php?id=<?=$id?>" class="text-light">Revenir a la gestion de dépenses</a></button>
+                    <input class="btn btn-dark" type="submit" value="Enregister">
+                    <button type="button" class="btn btn-dark"><a href="detailsmember.php?id=<?=$id?>" class="text-light">Revenir a la gestion de dépenses</a></button>
                 </form>
             </div>
         </div>

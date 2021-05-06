@@ -27,18 +27,18 @@ $userlist = userlist($pdo)?>
     <title>Hello, world!</title>
 </head>
 
-<body>
+<body class="bg-dark">
     
-<div class="container-fluid">
+<div class="container-fluid ">
 
-    <h2 class="text-center">Qui est-ce ?</h2>
+    <h2 class="text-center text-light">Qui est-ce ?</h2>
 
-        <div class="userlist">
+        <div class="userlist text-center ">
         <?php foreach($userlist as $ul) : ?>
-        <div class="card" >
-            <img src="assets/img/men.jpg"
+        <div class="card bg-dark" >
+            <img src="assets/img/<?= $ul['sexe']?>.png"
                 class="card-img-top" alt="">
-            <div class="card-body">
+            <div class="card-body text-light">
                 <p class="card-text"><?= $ul['first_name'] ?> <?= $ul['last_name'] ?></p>
                 <p class="card-text"><a href="backoffice?id=<?= $ul['user_id'] ?>">Choisir cet utilisateur</a></p>
             </div>

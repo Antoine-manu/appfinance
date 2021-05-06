@@ -12,7 +12,7 @@ $userlist = userlist($pdo)?>
         <div class="userlist">
         <?php foreach($userlist as $ul) : ?>
         <div class="card">
-            <img src="assets/img/men.jpg"
+            <img src="assets/img/<?=$ul['sexe'] ?>.png"
                 class="card-img-top" alt="">
             <div class="card-body">
                 <p class="card-text"><?= $ul['first_name'] ?> <?= $ul['last_name'] ?></p>

@@ -20,11 +20,15 @@ if (!empty($_POST)) {
     }else if(!preg_match($regexDate, $_POST['release_date'])){
         $errors['release_date'] = 'La valeur renseignée est incorrecte !';
     }
+    if (empty($_POST['sexe'])) {
+        $errors['sexe'] = 'Le champ est requis';
+    }
     if (empty($errors)) {
         $first_name = htmlentities($_POST['firstname']);
+        $sexe = htmlentities($_POST['sexe']);
         $last_name = htmlentities($_POST['name']);
         $release_date = htmlentities($_POST['release_date']);
-        if (addUser($pdo, $first_name, $last_name, $release_date)) {
+        if (addUser($pdo, $first_name, $last_name, $release_date, $sexe)) {
             $success = true;
         }
     }
@@ -58,7 +62,16 @@ $title = 'Ajouter un Utilisateur';
                         <input name="release_date" class="form-control" id="release_date" type="date">
                         <p class="mb-0 text-danger"><?= $errors['release_date'] ?? '' ?></p>
                     </div>
-                    <input class="btn btn-primary" type="submit" value="Enregister">
+                    <div class="mb-3">
+                        <label class="mb-3" for="sexe">Sexe:</label>
+                        <select class="form-select" name="sexe" id="sexe">
+                            <option value="" disabled selected>Choisir un sexe</option>
+                            <option value="homme">Homme</option>
+                            <option value="femme">Femme</option>
+                        </select>
+                        <p class="mb-0 text-danger"><?= $errors['sexe'] ?? '' ?></p>
+                    </div>
+                    <input class="btn btn-dark" type="submit" value="Enregister">
                 </form>
             </div>
         </div>

@@ -4,9 +4,16 @@ $pdo = connection();
 $detailsmembers = detailsmembers($pdo, $id);
 
 
-if (isset($_GET['user_id'])) {
+if (isset($_GET['exp_id'])) {
   $user_id = (int) $_GET['user_id'];
   $deletedepense = deletedepense($pdo, $user_id);
+  if ($deletedepense && ($deletedepense > 0)) {
+      $success = true;
+  }
+}
+if (isset($_GET['inc_id'])) {
+  $user_id = (int) $_GET['inc_id'];
+  $deletedepense = deleterevenu($pdo, $user_id);
   if ($deletedepense && ($deletedepense > 0)) {
       $success = true;
   }
@@ -43,7 +50,7 @@ $depense = getdepense($pdo, $id);
       <td><?= $dm['exp_amount'] ?></td>
       <td><?= formatdate($dm['exp_date']);?></td>
       <td><a href="editdepense.php?id=<?=$id ?>&data=<?= $dm['exp_id'] ?>" data-bs-toggle="tooltip" data-bs-placement="top" title="Editer"><i class="fas fa-edit"></i></a></td>
-      <td ><a href="?user_id=<?= $dm['exp_id'] ?>&id=<?= $id?>" class="text-danger" data-bs-toggle="tooltip" data-bs-placement="top" title="Supprimer">
+      <td ><a href="?exp_id=<?= $dm['exp_id'] ?>&id=<?= $id?>" class="text-danger" data-bs-toggle="tooltip" data-bs-placement="top" title="Supprimer">
       <i class="fas fa-trash-alt" ></i></a>
       </td>
     </tr>
@@ -68,8 +75,8 @@ $depense = getdepense($pdo, $id);
       <th><?= $dm['inc_cat_name']?></th>
       <td><?= $dm['inc_amount'] ?></td>
       <td><?= formatdate($dm['inc_receipt_date'])?></td>
-      <td><a href="" data-bs-toggle="tooltip" data-bs-placement="top" title="Editer""><i class="fas fa-edit"></i></a></td>
-      <td><a href="" class="text-danger" data-bs-toggle="tooltip" data-bs-placement="top" title="Supprimer"><i class="fas fa-trash-alt"></i></a></td>
+      <td><a href="editrevenu.php?id=<?=$id ?>&data=<?= $dm['inc_id'] ?>" data-bs-toggle="tooltip" data-bs-placement="top" title="Editer""><i class="fas fa-edit"></i></a></td>
+      <td><a href="?inc_id=<?= $dm['inc_id'] ?>&id=<?= $id?>" class="text-danger" data-bs-toggle="tooltip" data-bs-placement="top" title="Supprimer"><i class="fas fa-trash-alt"></i></a></td>
     </tr>
 <?php endforeach; ?>
 

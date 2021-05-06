@@ -23,7 +23,7 @@
     <title>Hello, world!</title>
 </head>
 
-<body>
+<body class="bg-light">
 
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -51,7 +51,7 @@
                     <span class="navbar-text ms-auto">
                     <a href="selectuser.php?id=<?=$id?>"><i class="fas fa-sign-out-alt"></i></a>
 
-                        <?= $detailsmembers['0']['first_name'] ?> <?= $detailsmembers['0']['last_name'] ?><img src="../assets/img/men.jpg" class="rounded-circle ms-3" alt="..." width="40rem" height="40rem">
+                        <a href="detailsmember.php?id=<?=$id?>"><?= $detailsmembers['0']['first_name'] ?> <?= $detailsmembers['0']['last_name'] ?><img src="../assets/img/<?=$detailsmembers['0']['sexe'] ?>.png" class="rounded-circle ms-3" alt="..." width="40rem" height="40rem"></a>
                     </span>
                     <?php endif ; ?>
                 </div>

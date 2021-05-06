@@ -1,11 +1,28 @@
 .userlist{
+    margin-top: 5%;
     width: 80%;
     margin: auto;
     display: flex;
     flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
 }
 .userlist .card {
     width: 25% !important;
      margin: 0 ;
     flex-wrap: wrap;
 }
+h2{
+    margin-bottom: 5%;
+    margin-top: 5%;
+}
+.chart-wrapper{
+    width: 500px;
+    height: 500px;
+    margin: 0 auto;
+}
+
+
+
+
+

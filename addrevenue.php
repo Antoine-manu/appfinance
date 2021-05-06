@@ -64,7 +64,7 @@ if (!empty($_POST)) {
                         <input name="inc_date" class="form-control" id="inc_date" type="date">
                         <p class="mb-0 text-danger"><?= $error ? 'Le champ est requis' : '' ?></p>
                     </div>
-                    <input class="btn btn-primary" type="submit" value="Enregister">
+                    <input class="btn btn-dark" type="submit" value="Enregister">
                 </form>
             </div>
         </div>
