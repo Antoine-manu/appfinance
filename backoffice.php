@@ -16,7 +16,7 @@ $detailsmembers = detailsmembers($pdo, $id);
 
 <div class="wrapper">
     <div class="container">
-        <div class="title">
+        <div class="title text-light">
             <h2>Résumé de votre compte :</h2>
         </div>
         <div class="chart-wrapper">

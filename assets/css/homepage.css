@@ -64,18 +64,18 @@ body{
     top: calc(50% - 15px);
     left: calc(50% - 15px);
     transform: rotate(-45deg);
-    fill: #2ecc71;
+    fill: #A83EB8;
     transition: all .35s;
   }
   
   a:hover{
     width: 200px;
-    border: 3px solid #2ecc71;
+    border: 3px solid #A83EB8;
     background: transparent;
-    color: #2ecc71;
+    color: #A83EB8;
   }
   
   a:hover + .icon{
-    border: 3px solid #2ecc71;
+    border: 3px solid #A83EB8;
     right: -25%;
   }

@@ -44,17 +44,21 @@ $title = 'Ajouter un Utilisateur';
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
         <?php endif; ?>
-        <div class="row justify-content-center">
-            <div class="col-md-5 bg-light p-3">
+        <div class="row justify-content-between">
+        <div class="col-md-5">
+                <img src="assets/img/undraw_Account_re_o7id.svg" alt="" width="130%">
+            </div>
+            <div class="col-md-5 text-light p-3">
+                <h2>Ajouter un utilisateur</h2>
                 <form action="" method="post">
                     <div class="mb-3">
                         <label class="mb-3" for="name">Prénom de l'utilisateur</label>
-                        <input name="name" class="form-control" id="name" type="text">
+                        <input name="name" class="form-control" placeholder="Prénom" id="name" type="text">
                         <p class="mb-0 text-danger"><?= $errors['title'] ?? '' ?></p>
                     </div>
                     <div class="mb-3">
                         <label class="mb-3" for="firstname">Nom de l'utilisateur</label>
-                        <input name="firstname" class="form-control" id="firstname" type="text">
+                        <input name="firstname" class="form-control" placeholder="Nom" id="firstname" type="text">
                         <p class="mb-0 text-danger"><?= $errors['title'] ?? '' ?></p>
                     </div>
                     <div class="mb-3">
@@ -74,6 +78,7 @@ $title = 'Ajouter un Utilisateur';
                     <input class="btn btn-dark" type="submit" value="Enregister">
                 </form>
             </div>
+            
         </div>
     </div>
 

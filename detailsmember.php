@@ -3,7 +3,6 @@ $id = getid();
 $pdo = connection();
 $detailsmembers = detailsmembers($pdo, $id);
 
-
 if (isset($_GET['exp_id'])) {
   $user_id = (int) $_GET['user_id'];
   $deletedepense = deletedepense($pdo, $user_id);
@@ -20,6 +19,9 @@ if (isset($_GET['inc_id'])) {
 }
 $revenue = getrevenue($pdo, $id);
 $depense = getdepense($pdo, $id);
+
+
+
 ?>
 <?php require_once 'inc/header.php' ?>
 
@@ -30,7 +32,18 @@ $depense = getdepense($pdo, $id);
         </div>
     <?php endif; ?>
 
-<div class="container-fluid d-inline-flex">
+    <nav class="navbar navbar-light mb-3">
+            <form class="container-fluid">
+                <div class="input-group">
+                    <span class="input-group-text bg-light" id="basic-addon1"><i class="fas fa-search"></i></span>
+                    <input type="text" class="form-control" placeholder="Chercher une depense" aria-label="Username"
+                        aria-describedby="basic-addon1" id="search" name="search">
+                        <input type="hidden" name="id" id="id" value="<?= $id?>">
+                </div>
+            </form>
+        </nav>
+  
+<div class="container-fluid d-inline-flex bg-light" >
 
   
 <table class="table">

@@ -43,11 +43,13 @@ if (!empty($_POST)) {
             </div>
         <?php endif; ?>
         <div class="row justify-content-center">
-            <div class="col-md-5 bg-light p-3">
+            <div class="col-md-5 p-3 text-light">
+            <h2>Declarer un revenu</h2>
                 <form action="" method="post">
                     <div class="mb-3">
                         <label class="mb-3" for="inc_cat_id">Rentrée:</label>
                         <select class="form-select" name="inc_cat_id" id="inc_cat_id">
+                            <option value="" disabled selected>Choisir La raison de votre rentrée</option>
                             <?php foreach($categorie as $dm) : ?>
                             <option value="<?= $dm['inc_cat_id'] ?>"><?= $dm['inc_cat_name'] ?></option>
                             <?php endforeach; ?>
@@ -56,7 +58,7 @@ if (!empty($_POST)) {
                     </div>
                     <div class="mb-3">
                         <label class="mb-3" for="inc_amount">Montant :</label>
-                        <input name="inc_amount" class="form-control" id="inc_amount" type="text">
+                        <input name="inc_amount" class="form-control" placeholder="Montant de la rentrée" id="inc_amount" type="text">
                         <p class="mb-0 text-danger"><?= $error ? 'Le champ est requis' : '' ?></p>
                     </div>
                     <div class="mb-3">
@@ -66,6 +68,9 @@ if (!empty($_POST)) {
                     </div>
                     <input class="btn btn-dark" type="submit" value="Enregister">
                 </form>
+            </div>
+            <div class="col-md-5">
+                <img src="assets/img/undraw_Payments_re_77x0.svg" alt="">
             </div>
         </div>
     </div>

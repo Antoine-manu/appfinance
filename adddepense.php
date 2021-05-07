@@ -39,17 +39,19 @@ if (!empty($_POST)) {
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
         <?php endif; ?>
-        <div class="row justify-content-center">
-            <div class="col-md-5 bg-light p-3">
+        
+        <div class="row justify-content-center text-light">
+            <div class="col-md-5  p-3">
+            <h2>Declarer une dépense</h2>
                 <form action="" method="post">
                     <div class="mb-3">
                         <label class="mb-3" for="exp_label">Dépense :</label>
-                        <input name="exp_label" class="form-control" id="exp_label" type="text">
+                        <input name="exp_label" class="form-control" placeholder="Raison de la depense" id="exp_label" type="text">
                         <p class="mb-0 text-danger"><?= $error ? 'Le champ est requis' : '' ?></p>
                     </div>
                     <div class="mb-3">
                         <label class="mb-3" for="exp_amount">Montant :</label>
-                        <input name="exp_amount" class="form-control" id="exp_amount" type="text">
+                        <input name="exp_amount" class="form-control" placeholder="Montant de la depense" id="exp_amount" type="text">
                         <p class="mb-0 text-danger"><?= $error ? 'Le champ est requis' : '' ?></p>
                     </div>
                     <div class="mb-3">
@@ -59,6 +61,9 @@ if (!empty($_POST)) {
                     </div>
                     <input class="btn btn-dark text-center" type="submit" value="Enregister">
                 </form>
+            </div>
+            <div class="col-md-5">
+                <img src="assets/img/undraw_Bitcoin_P2P_re_1xqa.svg" alt="">
             </div>
         </div>
     </div>

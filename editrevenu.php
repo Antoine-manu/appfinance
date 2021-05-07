@@ -38,7 +38,7 @@ if (!empty($_POST)) {
 <div class="container">
     <?php if (isset($success)) : ?>
     <div class="alert alert-success alert-dismissible fade show" role="alert">
-        <p>Album modifié avec succès !</p>
+        <p>Revenu modifié avec succès !</p>
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
     <?php endif; ?>

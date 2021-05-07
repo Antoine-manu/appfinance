@@ -1,6 +1,7 @@
 <?php require_once 'function.php';
+$actu = $_GET['actu'] ?? 0;
 $pdo = connection(); 
-$userlist = userlist($pdo)?>
+$userlist = userlist($pdo, $actu)?>
 
 <!doctype html>
 <html lang="en">
@@ -46,5 +47,14 @@ $userlist = userlist($pdo)?>
         <?php endforeach; ?>
         </div>
  
+        <nav aria-label="Page navigation example" class="float-end">
+  <ul class="pagination">
+  <?php if($actu>0 ){?>
+    <li class="page-item" <?= $actu==0?'disabled':'' ?>"><a class="page-link text-light" href="selectuser.php?&actu=<?php echo $actu - 5 ?>"><i class="fas fa-chevron-left"></i></a></li>
+    <?php } ?>
+    <li class="page-item"><a class="page-link text-light" href="#"><?php echo $actu/5 ?></a></li>
+    <li class="page-item"><a class="text-light page-link" href="selectuser.php?&actu=<?php echo $actu + 5 ?>"><i class="fas fa-chevron-right"></i></a></li>
+  </ul>
+</nav>
 
 <?php require_once 'inc/footer.php' ?>
