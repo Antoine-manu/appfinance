@@ -9,18 +9,24 @@ if (!empty($_POST)) {
 
     // vérifie que le nom est bien renseigné
     if (empty($_POST['exp_label'])) {
-        $error = true;
+        $errors['exp_label'] = 'Veuillez renseigner une valeur';
+    }else if(!preg_match($regexCharac, $_POST['exp_label'])){
+        $errors['exp_label'] = 'La valeur renseignée est incorrecte !';
     }
+
     if (empty($_POST['exp_amount'])) {
-        $error = true;
+        $errors['exp_amount'] = 'Veuillez renseigner une valeur';
+    }else if(!preg_match($regexnumber, $_POST['exp_amount'])){
+        $errors['exp_amount'] = 'La valeur renseignée est incorrecte !';
     }
+
     if (empty($_POST['exp_date'])) {
         $errors['exp_date'] = 'Le champ est requis';
     }else if(!preg_match($regexDate, $_POST['exp_date'])){
         $errors['exp_date'] = 'La valeur renseignée est incorrecte !';
     }
-
-    if (!$error) {
+    // var_dump($errors);
+    if (empty($errors)) {
         $exp_label = htmlentities($_POST['exp_label']);
         $exp_date = htmlentities($_POST['exp_date']);
         $exp_amount = (int) htmlentities($_POST['exp_amount']);
@@ -47,17 +53,17 @@ if (!empty($_POST)) {
                     <div class="mb-3">
                         <label class="mb-3" for="exp_label">Dépense :</label>
                         <input name="exp_label" class="form-control" placeholder="Raison de la depense" id="exp_label" type="text">
-                        <p class="mb-0 text-danger"><?= $error ? 'Le champ est requis' : '' ?></p>
+                        <p class="mb-0 text-danger"><?= $errors['exp_label'] ?? '' ?></p>
                     </div>
                     <div class="mb-3">
                         <label class="mb-3" for="exp_amount">Montant :</label>
                         <input name="exp_amount" class="form-control" placeholder="Montant de la depense" id="exp_amount" type="text">
-                        <p class="mb-0 text-danger"><?= $error ? 'Le champ est requis' : '' ?></p>
+                        <p class="mb-0 text-danger"><?= $errors['exp_amount'] ?? '' ?></p>
                     </div>
                     <div class="mb-3">
                         <label class="mb-3" for="exp_date">Date :</label>
                         <input name="exp_date" class="form-control" id="exp_date" type="date">
-                        <p class="mb-0 text-danger"><?= $error ? 'Le champ est requis' : '' ?></p>
+                        <p class="mb-0 text-danger"><?= $errors['exp_date'] ?? '' ?></p>
                     </div>
                     <input class="btn btn-dark text-center" type="submit" value="Enregister">
                 </form>

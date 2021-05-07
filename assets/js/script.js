@@ -10,7 +10,7 @@ var totalexp = document.getElementById('totalexp').dataset.number;
 
 let ctx = document.getElementById('myChart').getContext('2d');
 let labels = ['Dépenses', 'Rentrés'];
-let colorHex = ['#FFC300', '#FF5733'];
+let colorHex = ['#FF5733', '#40d330'];
 
 let myChart = new Chart(ctx, {
   type: 'pie',

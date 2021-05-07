@@ -11,9 +11,14 @@ if (!empty($_POST)) {
     // vérifie que le nom est bien renseigné
     if (empty($_POST['exp_label'])) {
         $errors['exp_label'] = 'Le champ est requis';
+    }else if(!preg_match($regexCharac, $_POST['exp_label'])){
+        $errors['exp_label'] = 'La valeur renseignée est incorrecte !';
     }
+    
     if (empty($_POST['exp_amount'])) {
         $errors['exp_amount'] = 'Le champ est requis';
+    }else if(!preg_match($regexnumber, $_POST['exp_amount'])){
+        $errors['exp_amount'] = 'La valeur renseignée est incorrecte !';
     }
 
     if (empty($_POST['exp_date'])) {

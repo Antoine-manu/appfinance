@@ -8,9 +8,14 @@ if (!empty($_POST)) {
     // vérifie que le nom est bien renseigné
     if (empty($_POST['last_name'])) {
         $errors['last_name'] = 'Le champ est requis';
+    }else if(!preg_match($regexCharac, $_POST['last_name'])){
+        $errors['last_name'] = 'La valeur renseignée est incorrecte !';
     }
+
     if (empty($_POST['first_name'])) {
         $errors['first_name'] = 'Le champ est requis';
+    }else if(!preg_match($regexCharac, $_POST['first_name'])){
+        $errors['first_name'] = 'La valeur renseignée est incorrecte !';
     }
 
     if (empty($_POST['birth_date'])) {

@@ -11,10 +11,16 @@ if (!empty($_POST)) {
     // vérifie que le nom est bien renseigné
     if (empty($_POST['firstname'])) {
         $errors['firstname'] = 'Le champ est requis';
+    }else if(!preg_match($regexCharac, $_POST['firstname'])){
+        $errors['firstname'] = 'La valeur renseignée est incorrecte !';
     }
+
     if (empty($_POST['name'])) {
         $errors['name'] = 'Le champ est requis';
+    }else if(!preg_match($regexCharac, $_POST['name'])){
+        $errors['name'] = 'La valeur renseignée est incorrecte !';
     }
+
     if (empty($_POST['release_date'])) {
         $errors['release_date'] = 'Le champ est requis';
     }else if(!preg_match($regexDate, $_POST['release_date'])){
@@ -22,7 +28,10 @@ if (!empty($_POST)) {
     }
     if (empty($_POST['sexe'])) {
         $errors['sexe'] = 'Le champ est requis';
+    }else if(!filter_var($_POST['sexe'], FILTER_VALIDATE_INT)){
+        $errors['sexe'] = 'La valeur renseignée est incorrecte !';
     }
+    
     if (empty($errors)) {
         $first_name = htmlentities($_POST['firstname']);
         $sexe = htmlentities($_POST['sexe']);

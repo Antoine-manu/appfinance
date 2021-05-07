@@ -4,7 +4,7 @@ $pdo = connection();
 $detailsmembers = detailsmembers($pdo, $id);
 
 if (isset($_GET['exp_id'])) {
-  $user_id = (int) $_GET['user_id'];
+  $user_id = (int) $_GET['exp_id'];
   $deletedepense = deletedepense($pdo, $user_id);
   if ($deletedepense && ($deletedepense > 0)) {
       $success = true;

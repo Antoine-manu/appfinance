@@ -10,9 +10,14 @@ if (!empty($_POST)) {
     // vérifie que le nom est bien renseigné
     if (empty($_POST['inc_cat_id'])) {
         $errors['inc_cat_id'] = 'Le champ est requis';
+    }else if(!filter_var($_POST['inc_cat_id'], FILTER_VALIDATE_INT)){
+        $errors['inc_cat_id'] = 'La valeur renseignée est incorrecte !';
     }
+
     if (empty($_POST['inc_amount'])) {
         $errors['inc_amount'] = 'Le champ est requis';
+    }else if(!preg_match($regexnumber, $_POST['inc_amount'])){
+        $errors['inc_amount'] = 'La valeur renseignée est incorrecte !';
     }
 
     if (empty($_POST['inc_receipt_date'])) {

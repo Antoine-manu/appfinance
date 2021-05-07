@@ -1,6 +1,9 @@
 <?php
   
   $regexDate = '/\d{4}-\d{2}-\d{2}/';
+  $regexCharac = '/^[a-zA-Zéèàîôç\s-]+$/';
+  $regexnumber = '/^[0-9]+$/';
+
 //Fonction qui sert a recuperer et lier la base de données
   function connection(){
     try {
